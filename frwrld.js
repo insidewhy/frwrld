@@ -1,5 +1,6 @@
 var express = require('express'),
-    app     = express.createServer(express.logger())
+    app     = express.createServer(express.logger()),
+    port
 
 app.configure(function() {
   app.set('views', __dirname + '/view')
@@ -11,7 +12,12 @@ app.configure(function() {
   app.use(app.router)
 })
 
-var port = process.env.PORT || 3000
+try {
+    var ctxt = require('./local.js')
+    port = ctxt.port
+} catch (e) {}
+
+port = port || process.env.PORT || 3000
 app.listen(port, function() {
   console.log("Listening on " + port)
 })
