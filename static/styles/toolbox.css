@@ -1,0 +1,21 @@
+/* the toolbox */
+#toolbox .header {
+  padding: 3px;
+  font-size: 80%;
+  background-color: black;
+  color: white; }
+
+#register {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black; }
+  #register form {
+    margin: 5px; }
+  #register label {
+    margin-top: 3px;
+    font-size: 80%;
+    display: block; }
+  #register input {
+    margin-top: 2px; }
+  #register input[type=submit] {
+    margin-top: 3px;
+    float: right; }

@@ -1,5 +1,5 @@
 @import "compass/reset";
-@import "compass/css3";
+@import "compass/css3/box";
 @import "compass/typography/links/hover-link";
 @import "compass/typography/links/link-colors";
 
@@ -43,11 +43,20 @@ textarea,input {
 }
 
 input[type=submit] {
-  background-color: rgb(230,230,230);
   padding: 0 3px;
   margin: 0;
+  font-size: 90%;
 }
 
 select {
   font-size: 90%;
 }
+
+/* the main UI */
+#ui {
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+}
+
+// vim:ts=2 sw=2:

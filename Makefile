@@ -1,7 +1,4 @@
-.PHONY: clean run css css-watch
-
-clean:
-	@rm -rf node_modules
+.PHONY: css css-watch run clean
 
 css:
 	scss --compass --update scss:static/styles
@@ -11,3 +8,6 @@ css-watch:
 
 run: css
 	node frwrld.js
+
+clean:
+	@rm -rf node_modules
