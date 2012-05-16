@@ -1,0 +1,53 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography/links/hover-link";
+@import "compass/typography/links/link-colors";
+
+/* compass imports end here */
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  height: 100%;
+  background-color: orange;
+}
+
+a {
+  @include hover-link;
+  @include link-colors(rgb(255, 0, 0));
+}
+
+/* remove button padding in ff */
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.error {
+  color: rgb(255,0,0);
+}
+
+textarea,input {
+  background-color: white;
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+  resize: none;
+}
+
+input[type=submit] {
+  background-color: rgb(230,230,230);
+  padding: 0 3px;
+  margin: 0;
+}
+
+select {
+  font-size: 90%;
+}
