@@ -12,7 +12,7 @@ body {
   font-family: Verdana, sans-serif;
   font-size: 10pt;
   height: 100%;
-  background-color: orange;
+  background-color: rgb(255, 250, 245);
 }
 
 a {
@@ -57,6 +57,7 @@ select {
   @include display-box;
   @include box-orient(horizontal);
   @include box-align(stretch);
+  margin: 20px 50px;
 }
 
 // vim:ts=2 sw=2:

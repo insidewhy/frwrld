@@ -1,5 +1,7 @@
-var express = require('express'),
-    app     = express.createServer(express.logger()),
+var express  = require('express'),
+    mongoose = require('mongoose'),
+    app      = express.createServer(express.logger()),
+    register = require('./register.js'),
     port, db // config
 
 app.configure(function() {
@@ -22,16 +24,25 @@ port = port || process.env.PORT || 3000
 db = db || process.env.DB
 
 if (! db) {
-  console.log("no database connection defined")
+  console.error('no database connection defined')
   process.exit(1)
 }
 
+var dbConn = mongoose.createConnection(db)
+dbConn.on('open', function() {
+  console.log('database connected')
+})
+
 app.listen(port, function() {
-  console.log("Listening on " + port)
+  console.log('Listening on ' + port)
 })
 
 app.get('/', function(req, res) {
   res.render('index')
+})
+
+app.post('/register', function(req, res) {
+  register.newUser(req, res)
 })
 
 // vim:ts=2 sw=2:

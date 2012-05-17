@@ -4,6 +4,8 @@
   font-size: 80%;
   background-color: black;
   color: white; }
+#toolbox > div {
+  background-color: #fff0e1; }
 
 #register {
   border-right: 1px solid black;
