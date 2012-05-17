@@ -1,1 +1,1 @@
-web: node frwrld.js
+web: ./node_modules/coffee-script/bin/coffee server.coffee
