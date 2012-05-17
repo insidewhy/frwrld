@@ -1,6 +1,6 @@
 var express = require('express'),
     app     = express.createServer(express.logger()),
-    port
+    port, db // config
 
 app.configure(function() {
   app.set('views', __dirname + '/view')
@@ -15,9 +15,17 @@ app.configure(function() {
 try {
     var ctxt = require('./local.js')
     port = ctxt.port
+    db = ctxt.db
 } catch (e) {}
 
 port = port || process.env.PORT || 3000
+db = db || process.env.DB
+
+if (! db) {
+  console.log("no database connection defined")
+  process.exit(1)
+}
+
 app.listen(port, function() {
   console.log("Listening on " + port)
 })
