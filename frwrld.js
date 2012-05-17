@@ -2,7 +2,7 @@ var express  = require('express'),
     mongoose = require('mongoose'),
     app      = express.createServer(express.logger()),
     register = require('./register.js'),
-    port, db // config
+    port, db, smtp // config
 
 app.configure(function() {
   app.set('views', __dirname + '/view')
@@ -18,10 +18,12 @@ try {
     var ctxt = require('./local.js')
     port = ctxt.port
     db = ctxt.db
+    smtp = ctxt.smtp
 } catch (e) {}
 
 port = port || process.env.PORT || 3000
 db = db || process.env.DB
+smtp = smtp || process.env.SMTP
 
 if (! db) {
   console.error('no database connection defined')
