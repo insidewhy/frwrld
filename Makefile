@@ -1,4 +1,4 @@
-.PHONY: css css-watch run clean
+.PHONY: css css-watch deps run clean
 
 css:
 	scss --compass --update scss:static/styles
@@ -6,7 +6,10 @@ css:
 css-watch:
 	scss --compass --watch scss:static/styles
 
-run: css
+deps:
+	npm install
+
+run: css deps
 	./node_modules/coffee-script/bin/coffee server.coffee
 
 clean:

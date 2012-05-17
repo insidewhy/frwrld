@@ -1,3 +1,4 @@
 node_modules
 .sass-cache
 local.coffee
+static/js/*.js
