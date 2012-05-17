@@ -5,9 +5,10 @@
         "express": "2.5.9",
         "jade": "0.26.0",
         "mongoose": "2.6.4",
-        "coffee-script": "1.3.3"
+        "coffee-script": "1.3.3",
+        "mailer": "0.6.7"
     },
     "scripts": {
-        "install": "./node_modules/coffee-script/bin/coffee  -o static/js -c web/register.coffee"
+        "install": "./node_modules/coffee-script/bin/coffee  -o static/js -c web/*.coffee"
     }
 }

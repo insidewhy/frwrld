@@ -1,6 +1,7 @@
+mailer = require 'mailer'
+
 exports.newUser = (req, res) ->
-  # signal success with good status
-  res.writeHead(200)
-  res.end()
+  # TODO: mail user
+  res.send 'ok', 'Content-Type': 'text/plain', 200
 
 # vim:ts=2 sw=2:

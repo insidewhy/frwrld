@@ -32,7 +32,7 @@ if ! db
 dbConn = mongoose.createConnection db
 dbConn.on 'open', () -> console.log 'database connected'
 
-app.listen port, () -> console.log('Listening on ' + port)
+app.listen port, () -> console.log 'Listening on ' + port
 
 app.get '/', (req, res) -> res.render 'index'
 
