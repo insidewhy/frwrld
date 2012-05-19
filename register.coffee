@@ -17,10 +17,10 @@ exports.newUser = (req, res) ->
     subject: 'frwrld registration'
     body: 'sorry frwrld is not ready yet'
 
-  @smtpPool.sendMail cmp, (err, resp) ->
-    if err
-      res.send 'failed', 'Content-Type': 'text/plain', 403
-    else
-      res.send 'ok', 'Content-Type': 'text/plain', 200
+  # @smtpPool.sendMail cmp, (err, resp) ->
+  #   if err
+  #     res.send 'failed', 'Content-Type': 'text/plain', 403
+  #   else
+  #     res.send 'ok', 'Content-Type': 'text/plain', 200
 
 # vim:ts=2 sw=2:
