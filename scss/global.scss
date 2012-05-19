@@ -2,6 +2,7 @@
 @import "compass/css3/box";
 @import "compass/typography/links/hover-link";
 @import "compass/typography/links/link-colors";
+@import "compass/css3/box-shadow";
 
 /* compass imports end here */
 html {
@@ -35,11 +36,22 @@ input::-moz-focus-inner {
 }
 
 textarea,input {
+  @include single-box-shadow(#555, 1px, 1px, 2px);
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #777;
   margin: 0;
   padding: 0;
   resize: none;
+}
+
+input:hover {
+  @include single-box-shadow(#111, 1px, 1px, 2px);
+  border-color: black;
+}
+
+input:focus {
+  @include single-box-shadow(#111, 0px, 0px, 0px, 0px);
+  border-color: black;
 }
 
 input[type=submit] {

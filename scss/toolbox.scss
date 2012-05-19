@@ -1,10 +1,11 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/images";
+@import "compass/css3/box-shadow";
 
 /* the toolbox */
 #toolbox {
   .header {
-    @include border-top-right-radius(7px);
+    @include border-top-right-radius(0.5em);
     @include background(linear-gradient(top left, #000, #333));
     padding: 3px;
     font-size: 80%;
@@ -22,18 +23,20 @@
 #register {
   form {
     padding: 5px;
-  }
-  label {
-    margin-top: 3px;
-    font-size: 80%;
-    display: block;
-  }
-  input {
-    margin-top: 2px;
-  }
-  input[type=submit] {
-    margin-top: 3px;
-    float: right;
+    >input:first-child {
+      margin-top: 4px;
+    }
+    input {
+      @include border-radius(0.35em);
+      display: block;
+      margin-top: 8px;
+      padding: 2px;
+    }
+    input[type=submit] {
+      margin-top: 7px;
+      float: right;
+      @include background(linear-gradient(top, white, rgb(255, 200, 160)));
+    }
   }
 }
 
