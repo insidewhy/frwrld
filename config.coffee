@@ -1,7 +1,7 @@
 _ = require 'underscore'
 
 _.extend exports,
-  db: "",
+  db: process.env.DB,
   smtp: process.env.SMTP || 'smtp://localhost',
   port: process.env.PORT || 3000,
   import: (args) =>
