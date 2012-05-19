@@ -1,18 +1,18 @@
-.PHONY: css css-watch coffee-watch deps run clean
+.PHONY: css watch deps run coffee clean
 
 css:
 	@scss --compass --update scss:static/styles
 
-css-watch:
-	@scss --compass --watch scss:static/styles
-
-coffee-watch:
-	@./node_modules/coffee-script/bin/coffee  -o static/js -w web/*.coffee
+watch:
+	@./bin/watch.bash
 
 deps: css
 	@npm install
 
 run: css deps
+	${MAKE} coffee
+
+coffee:
 	@./node_modules/coffee-script/bin/coffee server.coffee
 
 clean:

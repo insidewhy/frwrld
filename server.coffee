@@ -2,7 +2,7 @@ express  = require 'express'
 mongoose = require 'mongoose'
 app      = express.createServer express.logger()
 register = require './register.coffee'
-port = db = smtp = null # config
+config   = require './config.coffee'
 
 app.configure () ->
   app.set 'views', __dirname + '/view'
@@ -14,25 +14,19 @@ app.configure () ->
   app.use app.router
 
 try
-  ctxt = require './local.coffee'
-  port = ctxt.port
-  db = ctxt.db
-  smtp = ctxt.smtp
+  local = require './local.coffee'
+  config.import local
 catch e
-  "nothing"
+  null
 
-port = port || process.env.PORT || 3000
-db = db || process.env.DB
-smtp = smtp || process.env.SMTP
-
-if ! db
+if ! config.db
   console.error 'no database connection defined'
   process.exit 1
 
-dbConn = mongoose.createConnection db
+dbConn = mongoose.createConnection config.db
 dbConn.on 'open', () -> console.log 'database connected'
 
-app.listen port, () -> console.log 'Listening on ' + port
+app.listen config.port, () -> console.log 'Listening on ' + config.port
 
 app.get '/', (req, res) -> res.render 'index'
 
