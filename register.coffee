@@ -1,25 +1,26 @@
-mailer = require 'mailer'
 config = require './config.coffee'
+ssmtp  = require 'simplesmtp'
+MailComposer = require('mailcomposer').MailComposer
+
+exports.initSmtp = (cfg) ->
+  @smtpPool = ssmtp.createClientPool cfg.port, cfg.host,
+    auth:
+      user: cfg.username
+      pass: cfg.password
 
 exports.newUser = (req, res) ->
-  # mailer.send(
-  # TODO: mail user
-  opts =
-    host: config.smtp.host
-    port: config.smtp.port
-    ssl: true
-    domain: 'localhost'
-    to: req.body.email
+  # TODO: generate token, store DB, send e-mail
+  cmp = new MailComposer
+  cmp.setMessageOption
     from: 'registration@frwrld.com'
+    to: req.body.email
     subject: 'frwrld registration'
-    body: 'still testing sorry'
-    authentication: 'plain'
-    username: config.smtp.username
-    password: config.smtp.password
+    body: 'sorry frwrld is not ready yet'
 
-  mailer.send opts, (err, res) ->
-    console.log err, res
-
-  res.send 'ok', 'Content-Type': 'text/plain', 200
+  @smtpPool.sendMail cmp, (err, resp) ->
+    if err
+      res.send 'failed', 'Content-Type': 'text/plain', 403
+    else
+      res.send 'ok', 'Content-Type': 'text/plain', 200
 
 # vim:ts=2 sw=2:
