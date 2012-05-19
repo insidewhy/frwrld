@@ -17,7 +17,7 @@ try
   local = require './local.coffee'
   config.import local
 catch e
-  null
+  console.log e
 
 if ! config.db
   console.error 'no database connection defined'

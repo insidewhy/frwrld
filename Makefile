@@ -9,7 +9,7 @@ watch:
 deps: css
 	@npm install
 
-run: css deps
+run: deps
 	${MAKE} coffee
 
 coffee:
