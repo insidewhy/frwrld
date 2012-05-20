@@ -219,7 +219,12 @@ select {
   -ms-border-radius: 0.35em;
   -o-border-radius: 0.35em;
   border-radius: 0.35em;
-  background-color: #fef0c9;
-  margin: 5px;
+  background-color: #fdfcdc;
+  border: 1px solid black;
+  margin: 8px;
   padding: 5px;
-  text-shadow: #a0a0a0 0px 0px 1px; }
+  width: 15em;
+  text-shadow: #cdbe96 0px 0px 1px;
+  -webkit-box-shadow: 0px 0px 2px #aaaaaa;
+  -moz-box-shadow: 0px 0px 2px #aaaaaa;
+  box-shadow: 0px 0px 2px #aaaaaa; }

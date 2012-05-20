@@ -51,10 +51,13 @@ $box-radius: 0.5em;
   }
   .registered {
     @include border-radius(0.35em);
-    background-color: $alt-dark-color;
-    margin: 5px;
+    background-color: $alt-light-color;
+    border: 1px solid black;
+    margin: 8px;
     padding: 5px;
-    @include single-text-shadow($text-shadow);
+    width: 15em;
+    @include single-text-shadow($mid-text-shadow);
+    @include single-box-shadow(#aaa, 0px, 0px, 2px);
   }
 }
 
