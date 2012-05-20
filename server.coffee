@@ -12,13 +12,13 @@ try
 catch e
   console.log e
 
-register.initSmtp config.smtp
-
 if ! config.db
   console.error 'no database connection defined'
   process.exit 1
 
 config.expand()
+
+register.initSmtp config.smtp
 
 ##############################################################################
 # setup

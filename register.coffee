@@ -53,7 +53,7 @@ exports.newUser = (req, res) ->
 
     @smtpPool.sendMail cmp, (err, resp) ->
       if err
-        console.log err
+        console.log 'error sending mail:', err
         fail 'mail'
       else
         res.send 'ok', 'Content-Type': 'text/plain', 200
