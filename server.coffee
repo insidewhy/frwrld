@@ -18,6 +18,8 @@ if ! config.db
   console.error 'no database connection defined'
   process.exit 1
 
+config.expand()
+
 ##############################################################################
 # setup
 # dbConn = mongoose.createConnection config.db
