@@ -1,4 +1,4 @@
-.PHONY: css watch deps run coffee clean
+.PHONY: css watch deps run coffee mongoc clean
 
 css:
 	@scss --compass --update scss:static/styles
@@ -14,6 +14,9 @@ run: deps
 
 coffee:
 	@./node_modules/coffee-script/bin/coffee server.coffee
+
+mongo:
+	mongo frwrld
 
 clean:
 	@rm -rf node_modules

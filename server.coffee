@@ -40,8 +40,11 @@ app.listen config.port, () -> console.log 'Listening on ' + config.port
 
 ##############################################################################
 # routing
-app.get '/', (req, res) -> res.render 'index'
 
+app.get '/', (req, res) -> res.render 'index'
+# trigger registration e-mail
 app.post '/register', (req, res) -> register.newUser(req, res)
+# user following registration e-mail
+app.get '/register', (req, res) -> res.render 'index'
 
 # vim:ts=2 sw=2:

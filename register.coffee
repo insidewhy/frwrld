@@ -46,9 +46,10 @@ exports.newUser = (req, res) ->
       from: 'registration@frwrld.com'
       to: req.body.email
       subject: 'frwrld registration'
-      body: "Please go to
-             http://#{config.host}/register/?email=#{req.body.email}&code=#{user.token}
-             to complete registration"
+      body:
+        "Please go to
+         http://#{config.host}/register?email=#{req.body.email}&code=#{user.token}
+         to complete registration"
 
     @smtpPool.sendMail cmp, (err, resp) ->
       if err
