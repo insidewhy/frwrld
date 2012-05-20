@@ -1,24 +1,55 @@
 /* the toolbox */
-#toolbox .header {
-  -moz-border-radius-topright: 0.5em;
-  -webkit-border-top-right-radius: 0.5em;
-  -ms-border-top-right-radius: 0.5em;
-  -o-border-top-right-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-  background: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #000000), color-stop(100%, #333333));
-  background: -webkit-linear-gradient(top left, #000000, #333333);
-  background: -moz-linear-gradient(top left, #000000, #333333);
-  background: -o-linear-gradient(top left, #000000, #333333);
-  background: -ms-linear-gradient(top left, #000000, #333333);
-  background: linear-gradient(top left, #000000, #333333);
-  padding: 3px;
-  font-size: 80%;
-  color: white; }
-#toolbox .content {
-  border-right: 1px solid #828282;
-  border-bottom: 1px solid #828282; }
-#toolbox > div {
-  background-color: #fff0e1; }
+#toolbox {
+  margin-left: 10px; }
+  #toolbox .header {
+    font-weight: bold;
+    background: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #000000), color-stop(100%, #333333));
+    background: -webkit-linear-gradient(top left, #000000, #333333);
+    background: -moz-linear-gradient(top left, #000000, #333333);
+    background: -o-linear-gradient(top left, #000000, #333333);
+    background: -ms-linear-gradient(top left, #000000, #333333);
+    background: linear-gradient(top left, #000000, #333333);
+    text-shadow: #fff0e1 0px 0px 1px;
+    -moz-border-radius-topleft: 0.5em;
+    -webkit-border-top-left-radius: 0.5em;
+    -ms-border-top-left-radius: 0.5em;
+    -o-border-top-left-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+    -webkit-border-top-right-radius: 0.5em;
+    -ms-border-top-right-radius: 0.5em;
+    -o-border-top-right-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    padding: 4px;
+    font-size: 85%;
+    color: white; }
+  #toolbox > div {
+    background-color: #fff0e1; }
+    #toolbox > div > div {
+      border: 1px solid #828282;
+      -moz-border-radius-bottomleft: 0.5em;
+      -webkit-border-bottom-left-radius: 0.5em;
+      -ms-border-bottom-left-radius: 0.5em;
+      -o-border-bottom-left-radius: 0.5em;
+      border-bottom-left-radius: 0.5em;
+      -moz-border-radius-bottomright: 0.5em;
+      -webkit-border-bottom-right-radius: 0.5em;
+      -ms-border-bottom-right-radius: 0.5em;
+      -o-border-bottom-right-radius: 0.5em;
+      border-bottom-right-radius: 0.5em;
+      -moz-border-radius-topleft: 0.5em;
+      -webkit-border-top-left-radius: 0.5em;
+      -ms-border-top-left-radius: 0.5em;
+      -o-border-top-left-radius: 0.5em;
+      border-top-left-radius: 0.5em;
+      -moz-border-radius-topright: 0.5em;
+      -webkit-border-top-right-radius: 0.5em;
+      -ms-border-top-right-radius: 0.5em;
+      -o-border-top-right-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      -webkit-box-shadow: 0px 0px 2px #aaaaaa;
+      -moz-box-shadow: 0px 0px 2px #aaaaaa;
+      box-shadow: 0px 0px 2px #aaaaaa; }
 
 #register form {
   padding: 5px; }
@@ -34,7 +65,7 @@
     margin-top: 8px;
     padding: 2px; }
   #register form input[type=submit] {
-    margin-top: 7px;
+    margin: 7px 0 2px 0;
     float: right;
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ffc8a0));
     background: -webkit-linear-gradient(top, #ffffff, #ffc8a0);

@@ -1,21 +1,29 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/images";
 @import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+
+$box-radius: 0.5em;
 
 /* the toolbox */
 #toolbox {
+  margin-left: 10px;
   .header {
-    @include border-top-right-radius(0.5em);
+    font-weight: bold;
     @include background(linear-gradient(top left, #000, #333));
-    padding: 3px;
-    font-size: 80%;
+    @include single-text-shadow(rgb(255, 240, 225));
+    @include border-top-radius($box-radius);
+    padding: 4px;
+    font-size: 85%;
     color: white;
   }
-  .content {
-    border-right: 1px solid rgb(130, 130, 130);
-    border-bottom: 1px solid rgb(130, 130, 130);
-  }
   >div {
+    >div {
+      border: 1px solid rgb(130, 130, 130);
+      @include border-bottom-radius($box-radius);
+      @include border-top-radius($box-radius);
+      @include single-box-shadow(#aaa, 0px, 0px, 2px);
+    }
     background-color: rgb(255, 240, 225);
   }
 }
@@ -33,7 +41,7 @@
       padding: 2px;
     }
     input[type=submit] {
-      margin-top: 7px;
+      margin: 7px 0 2px 0;
       float: right;
       @include background(linear-gradient(top, white, rgb(255, 200, 160)));
     }

@@ -3,8 +3,7 @@
 
 #canvas-frame {
   padding: 15px;
-  @include border-top-left-radius(0.5em);
-  @include border-bottom-left-radius(0.5em);
+  @include border-radius(0.5em);
   border: 2px solid rgb(130, 130, 130);
 }
 
