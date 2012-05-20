@@ -1,3 +1,141 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/* compass imports end here */
+html {
+  height: 100%; }
+
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  height: 100%;
+  background-color: #fffaf5; }
+
+a {
+  text-decoration: none;
+  color: red; }
+  a:hover {
+    text-decoration: underline; }
+
+/* remove button padding in ff */
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+.clear {
+  clear: both; }
+
+.error {
+  color: red; }
+
+textarea, input {
+  -webkit-box-shadow: 1px 1px 2px #aaaaaa;
+  -moz-box-shadow: 1px 1px 2px #aaaaaa;
+  box-shadow: 1px 1px 2px #aaaaaa;
+  background-color: white;
+  border: 1px solid #777;
+  margin: 0;
+  padding: 0;
+  resize: none; }
+
+input:hover {
+  -webkit-box-shadow: 1px 1px 2px #111111;
+  -moz-box-shadow: 1px 1px 2px #111111;
+  box-shadow: 1px 1px 2px #111111;
+  border-color: black; }
+
+input:focus {
+  -webkit-box-shadow: 0px 0px 0px 0px #111111;
+  -moz-box-shadow: 0px 0px 0px 0px #111111;
+  box-shadow: 0px 0px 0px 0px #111111;
+  border-color: black; }
+
+input[type=submit] {
+  padding: 0 3px;
+  margin: 0;
+  font-size: 90%; }
+
+select {
+  font-size: 90%; }
+
+/* the main UI */
+#ui {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  margin: 20px 50px; }
+
+#canvas-frame {
+  padding: 15px;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  border: 2px solid #828282; }
+
+#canvas {
+  width: 512px;
+  height: 448px;
+  border: 1px solid black;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px #333333;
+  -moz-box-shadow: 0px 0px 3px #333333;
+  box-shadow: 0px 0px 3px #333333; }
+
 /* the toolbox */
 #toolbox {
   margin-left: 10px; }

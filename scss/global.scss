@@ -4,6 +4,8 @@
 @import "compass/typography/links/link-colors";
 @import "compass/css3/box-shadow";
 
+@import "orange";
+
 /* compass imports end here */
 html {
   height: 100%;
@@ -13,7 +15,7 @@ body {
   font-family: Verdana, sans-serif;
   font-size: 10pt;
   height: 100%;
-  background-color: rgb(255, 250, 245);
+  background-color: $background-color;
 }
 
 a {
@@ -36,7 +38,7 @@ input::-moz-focus-inner {
 }
 
 textarea,input {
-  @include single-box-shadow(#555, 1px, 1px, 2px);
+  @include single-box-shadow(#aaa, 1px, 1px, 2px);
   background-color: white;
   border: 1px solid #777;
   margin: 0;

@@ -73,9 +73,9 @@ input::-moz-focus-inner {
   color: red; }
 
 textarea, input {
-  -webkit-box-shadow: 1px 1px 2px #555555;
-  -moz-box-shadow: 1px 1px 2px #555555;
-  box-shadow: 1px 1px 2px #555555;
+  -webkit-box-shadow: 1px 1px 2px #aaaaaa;
+  -moz-box-shadow: 1px 1px 2px #aaaaaa;
+  box-shadow: 1px 1px 2px #aaaaaa;
   background-color: white;
   border: 1px solid #777;
   margin: 0;
