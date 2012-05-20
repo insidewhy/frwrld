@@ -20,6 +20,7 @@ watch_coffee() {
 }
 
 bye() {
+    # TODO: scss lives after this
     kill $(jobs -p)
     echo stopped watching
 }

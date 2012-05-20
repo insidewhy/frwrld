@@ -5,6 +5,7 @@ ObjectId     = Schema.ObjectId
 User = new Schema
   handle:       { type: String, index: { unique: true } }
   email:        { type: String, index: { unique: true } }
+  password:     { type: String }
   token:        { type: String }
   creationDate: { type: Date, default: Date.now }
 

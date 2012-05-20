@@ -13,7 +13,7 @@ $box-radius: 0.5em;
   .header {
     font-weight: bold;
     @include background(linear-gradient(top left, #000, #333));
-    @include single-text-shadow($text-shadow);
+    @include single-text-shadow($light-text-shadow);
     @include border-top-radius($box-radius);
     padding: 4px;
     font-size: 85%;
@@ -43,11 +43,18 @@ $box-radius: 0.5em;
       padding: 2px;
     }
     input[type=submit] {
-      @include single-text-shadow($text-shadow);
+      @include single-text-shadow($light-text-shadow);
       margin: 7px 0 2px 0;
       float: right;
       @include background(linear-gradient(top, $background-color, $darkest-color));
     }
+  }
+  .registered {
+    @include border-radius(0.35em);
+    background-color: $alt-dark-color;
+    margin: 5px;
+    padding: 5px;
+    @include single-text-shadow($text-shadow);
   }
 }
 
