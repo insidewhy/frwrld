@@ -1,6 +1,11 @@
 config = require './config.coffee'
+require './schema/user.coffee'
+
 ssmtp  = require 'simplesmtp'
+mongoose  = require 'mongoose'
 MailComposer = require('mailcomposer').MailComposer
+
+userModel = mongoose.model('user')
 
 exports.initSmtp = (cfg) ->
   @smtpPool = ssmtp.createClientPool cfg.port, cfg.host,
@@ -8,19 +13,48 @@ exports.initSmtp = (cfg) ->
       user: cfg.username
       pass: cfg.password
 
-exports.newUser = (req, res) ->
-  # TODO: generate token, store DB, send e-mail
-  cmp = new MailComposer
-  cmp.setMessageOption
-    from: 'registration@frwrld.com'
-    to: req.body.email
-    subject: 'frwrld registration'
-    body: 'sorry frwrld is not ready yet'
+randomToken = () ->
+  toks = new Array
+  toks.length = 20
+  for idx in [0...toks.length]
+    toks[idx] = String.fromCharCode(
+      Math.floor(Math.random() * (122 - 97 + 1)) + 97)
+  toks.join ''
 
-  # @smtpPool.sendMail cmp, (err, resp) ->
-  #   if err
-  #     res.send 'failed', 'Content-Type': 'text/plain', 403
-  #   else
-  #     res.send 'ok', 'Content-Type': 'text/plain', 200
+exports.newUser = (req, res) ->
+  fail = (msg) ->
+    res.send msg, 'Content-Type': 'text/plain', 403
+
+  user = new userModel
+  user.handle = user.email = req.body.email
+  # URGENT: hash this
+  user.password = req.body.password
+  user.token = randomToken()
+
+  user.save (err) =>
+    if err
+      console.log "Failed to save user #{err}"
+      if err.code is 11000
+        fail 'duplicate'
+      else
+        fail 'db'
+      return
+
+    console.log "Saved user"
+
+    cmp = new MailComposer
+    cmp.setMessageOption
+      from: 'registration@frwrld.com'
+      to: req.body.email
+      subject: 'frwrld registration'
+      body: "Please go to
+             http://#{config.host}/register/?email=#{req.body.email}&code=#{user.token}
+             to complete registration"
+
+    @smtpPool.sendMail cmp, (err, resp) ->
+      if err
+        fail 'mail'
+      else
+        res.send 'ok', 'Content-Type': 'text/plain', 200
 
 # vim:ts=2 sw=2:

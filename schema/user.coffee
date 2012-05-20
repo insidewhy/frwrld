@@ -3,7 +3,9 @@ Schema       = mongoose.Schema
 ObjectId     = Schema.ObjectId
 
 User = new Schema
-  handle:       { type: String, index: 1 },
+  handle:       { type: String, index: { unique: true } }
+  email:        { type: String, index: { unique: true } }
+  token:        { type: String }
   creationDate: { type: Date, default: Date.now }
 
 # cache the session IDs of logged in users
