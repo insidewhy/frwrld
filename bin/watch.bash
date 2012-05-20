@@ -1,32 +1,24 @@
 #!/bin/bash
 
-# scss and coffee watch sometimes crash to it's best to run them in little
-# loops like this.
+# scss and coffee have watch routines. vim saving would confuse
+# coffee-script watch and cause it to stop monitoring files, so I wrote
+# this using inotify-tools. Will work on linux.
 
-sleepfor=2 # to avoid bomb in case of disaster
-
-watch_scss() {
-    while true ; do
-        scss --compass --watch scss:static/styles
-        sleep $sleepfor
-    done
+highlight() {
+    echo -e "\007"
 }
 
-watch_coffee() {
-    while true ; do
-        ./node_modules/coffee-script/bin/coffee  -o static/js -w web/*.coffee
-        sleep $sleepfor
-    done
-}
-
-bye() {
-    # TODO: scss lives after this
-    kill $(jobs -p)
-    echo stopped watching
-}
-
-trap "bye" SIGINT SIGTERM
-
-watch_scss &
-watch_coffee &
-wait
+inotifywait -e modify -m web scss | while read line ; do
+    [[ $line = *.swp ]] && continue
+    case $line in
+        web/*)
+            echo "updating javascript"
+            ./node_modules/coffee-script/bin/coffee -o static/js web/*.coffee \
+                || highlight
+            ;;
+        scss/*)
+            echo "updating scss"
+            scss --compass --update scss:static/styles || highlight
+            ;;
+    esac
+done
