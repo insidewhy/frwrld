@@ -1,5 +1,5 @@
 node_modules
 .sass-cache
-local.coffee
+local*
 static/js/*.js
 .*.swp

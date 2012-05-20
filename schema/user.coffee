@@ -5,14 +5,14 @@ ObjectId     = Schema.ObjectId
 User = new Schema
   handle:       { type: String, index: { unique: true } }
   email:        { type: String, index: { unique: true } }
-  password:     { type: String }
-  token:        { type: String }
+  password:     String
+  token:        String
   creationDate: { type: Date, default: Date.now }
 
 # cache the session IDs of logged in users
 Session = new Schema
-  _id:    { type: String, index: 1 },
-  userId: ObjectId,
+  _id:    String
+  userId: ObjectId
   date:   { type: Date, default: Date.now, index: 1 }
 
 mongoose.model 'user', User

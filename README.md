@@ -13,6 +13,7 @@ Dependencies
 
 TODO
 ====
+* logging in
 * import some sprite maps
 * 2d physics (walking on solid, jumping and walking)
 * sprite designer
