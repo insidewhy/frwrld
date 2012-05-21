@@ -92,7 +92,7 @@ input:focus {
   -webkit-box-shadow: 0px 0px 0px 0px #111111;
   -moz-box-shadow: 0px 0px 0px 0px #111111;
   box-shadow: 0px 0px 0px 0px #111111;
-  border-color: #fef0c9; }
+  border-color: #ff7f24; }
 
 input[type=submit] {
   padding: 0 3px;
