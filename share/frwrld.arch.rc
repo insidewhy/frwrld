@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# rc.d style start script compatible with arch linux
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+# opts="${opts} reload"
+
+FRWRLD_INSTANCE=$(basename $0)
+# set in conf.d
+# FRWRLD_ROOT=/var/git/www/$FRWRLD_INSTANCE
+FRWRLD_USER=frwrld
+
+FRWRLD_CONF=/etc/conf.d/$FRWRLD_INSTANCE
+[ -f $FRWRLD_CONF ] && . $FRWRLD_CONF
+
+NODE=$FRWRLD_ROOT/node_modules/coffee-script/bin/coffee
+
+start() {
+    stat_busy "Starting $FRWRLD_INSTANCE"
+
+    start-stop-daemon -Smp /var/run/$FRWRLD_INSTANCE.pid -bc $FRWRLD_USER -d $FRWRLD_ROOT -x $NODE $FRWRLD_ROOT/server.coffee
+    if [ $? -eq 0 ] ; then
+        add_daemon $FRWRLD_INSTANCE
+        stat_done
+    else
+        stat_fail
+    fi
+}
+
+stop() {
+	stat_busy "Stopping $FRWRLD_INSTANCE"
+    start-stop-daemon -Kp /var/run/$FRWRLD_INSTANCE.pid
+    if [ $? -eq 0 ] ; then
+        rm_daemon $FRWRLD_INSTANCE
+        stat_done
+    else
+        stat_fail
+    fi
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop
+    sleep 3
+    start
+    ;;
+esac
+
