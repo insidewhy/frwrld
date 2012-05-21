@@ -18,6 +18,6 @@
       "node >=0.4.0"
     ],
     "scripts": {
-        "install": "./node_modules/coffee-script/bin/coffee  -o static/js -c web/*.coffee"
+        "install": "./node_modules/coffee-script/bin/coffee  -o static/js -c web/*.coffee ; [ -x `which scss` ] && scss --compass --update scss:static/styles ; true"
     }
 }
