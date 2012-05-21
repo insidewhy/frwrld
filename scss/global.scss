@@ -1,8 +1,10 @@
 @import "compass/reset";
-@import "compass/css3/box";
 @import "compass/typography/links/hover-link";
 @import "compass/typography/links/link-colors";
 @import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/text-shadow";
+@import "compass/css3/box";
 
 @import "orange";
 
@@ -38,7 +40,7 @@ input::-moz-focus-inner {
 }
 
 textarea,input {
-  @include single-box-shadow(#aaa, 1px, 1px, 2px);
+  @include single-box-shadow($light-box-shadow, 1px, 1px, 2px);
   background-color: white;
   border: 1px solid #777;
   margin: 0;
@@ -47,13 +49,13 @@ textarea,input {
 }
 
 input:hover {
-  @include single-box-shadow(#111, 1px, 1px, 2px);
+  @include single-box-shadow($dark-box-shadow, 1px, 1px, 2px);
   border-color: black;
 }
 
 input:focus {
-  @include single-box-shadow(#111, 0px, 0px, 0px, 0px);
-  border-color: black;
+  @include single-box-shadow($dark-box-shadow, 0px, 0px, 0px, 0px);
+  border-color: $alt-mid-color;
 }
 
 input[type=submit] {
@@ -72,6 +74,20 @@ select {
   @include box-orient(horizontal);
   @include box-align(stretch);
   margin: 20px 50px;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  @include border-radius(0.35em);
+  @include single-text-shadow($light-text-shadow);
+  @include single-box-shadow($dark-box-shadow, 0px, 0px, 2px);
+  line-height: 1.15em;
+  padding: 5px;
+  background-color: $alt-mid-color;
+  border: 1px $alt-mid-color solid;
+  margin: 5px;
+  width: 15em;
 }
 
 // vim:ts=2 sw=2:

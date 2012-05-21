@@ -1,12 +1,16 @@
 $dark-color: rgb(255, 240, 225);
 $darkest-color: rgb(255, 200, 160);
 
+// $alt-color: #fdf6cf;
+$alt-light-color: #fdfcdc;
+$alt-mid-color: #fef0c9;
+
 $background-color: rgb(255, 250, 245);
 
+// shadows
 $text-shadow: rgb(160, 160, 160);
 $mid-text-shadow: rgb(205, 190, 150);
 $light-text-shadow: rgb(255, 240, 225);
 
-$alt-light-color: #fdfcdc;
-// $alt-dark-color: #fef0c9;
-// $alt-color: #fdf6cf;
+$dark-box-shadow: #111;
+$light-box-shadow: #aaa;

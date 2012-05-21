@@ -92,7 +92,7 @@ input:focus {
   -webkit-box-shadow: 0px 0px 0px 0px #111111;
   -moz-box-shadow: 0px 0px 0px 0px #111111;
   box-shadow: 0px 0px 0px 0px #111111;
-  border-color: black; }
+  border-color: #fef0c9; }
 
 input[type=submit] {
   padding: 0 3px;
@@ -117,6 +117,25 @@ select {
   -ms-box-align: stretch;
   box-align: stretch;
   margin: 20px 50px; }
+
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  -ms-border-radius: 0.35em;
+  -o-border-radius: 0.35em;
+  border-radius: 0.35em;
+  text-shadow: #fff0e1 0px 0px 1px;
+  -webkit-box-shadow: 0px 0px 2px #111111;
+  -moz-box-shadow: 0px 0px 2px #111111;
+  box-shadow: 0px 0px 2px #111111;
+  line-height: 1.15em;
+  padding: 5px;
+  background-color: #fef0c9;
+  border: 1px #fef0c9 solid;
+  margin: 5px;
+  width: 15em; }
 
 #canvas-frame {
   padding: 15px;

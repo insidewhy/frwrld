@@ -24,7 +24,7 @@ $box-radius: 0.5em;
       border: 1px solid rgb(130, 130, 130);
       @include border-bottom-radius($box-radius);
       @include border-top-radius($box-radius);
-      @include single-box-shadow(#aaa, 0px, 0px, 2px);
+      @include single-box-shadow($light-box-shadow, 0px, 0px, 2px);
     }
     background-color: $dark-color;
   }
@@ -57,7 +57,7 @@ $box-radius: 0.5em;
     padding: 5px;
     width: 15em;
     @include single-text-shadow($mid-text-shadow);
-    @include single-box-shadow(#aaa, 0px, 0px, 2px);
+    @include single-box-shadow($light-box-shadow, 0px, 0px, 2px);
   }
 }
 
