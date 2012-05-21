@@ -27,7 +27,6 @@ exports.newUser = (req, res) ->
 
   user = new userModel
   user.handle = user.email = req.body.email
-  user.password = req.body.password
   user.token = randomToken()
 
   user.save (err) =>

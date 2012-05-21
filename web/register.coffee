@@ -21,12 +21,9 @@ failed = (xhr, text) ->
 
 frwrld.register = () ->
   $form = $('#register form')
-  passHash = CryptoJS.SHA1($form.find('[name=password]').val()).toString()
-  $.post(
-    '/register',
-    email: $form.find('[name=email]').val(),
-    password: passHash)
-    .done(registered).error(failed)
+  $.post('/register',email: $form.find('[name=email]').val())
+    .done(registered)
+    .error(failed)
   false
 
 frwrld.registerEmailCredentials = () ->
@@ -36,16 +33,20 @@ frwrld.registerEmailCredentials = () ->
   $('#register .header').text 'Login'
 
   form = $('#register form')
-  form.find('input[name=email]').val frwrld.get.email
+  emailInput = form.find('input[name=email]')
+    .val(frwrld.get.email)
+    .attr('readonly', true)
   form.find('input[type=submit]').val 'Login'
 
-  pass = form.find('input[name=password]')
-    .attr('placeholder', 'Enter your password')
+  pass = $('<input/>', { type: 'password', name: 'password' })
+    .attr('placeholder', 'Choose a password')
+    .insertAfter(emailInput)
     .focus()
 
   tooltip = new frwrld.Tooltip pass,
-    "Please enter your password to confirm registration."
+    "Please choose a password to confirm registration."
 
+  # passHash = CryptoJS.SHA1($form.find('[name=password]').val()).toString()
   # TODO: capture login then remove registration toolbox
 
 # vim:ts=2 sw=2:
