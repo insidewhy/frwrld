@@ -8,7 +8,16 @@ highlight() {
     echo -e "\007"
 }
 
-inotifywait -e modify -m web scss | while read line ; do
+runserver() {
+    ./node_modules/coffee-script/bin/coffee server.coffee &
+}
+
+(echo first ; inotifywait -e modify -m web scss .) | while read line ; do
+    if [[ $line = first ]] ; then
+        # have to run server in read loop else can't kill job
+        runserver
+        continue
+    fi
     [[ $line = *.swp ]] && continue
     case $line in
         web/*)
@@ -19,6 +28,12 @@ inotifywait -e modify -m web scss | while read line ; do
         scss/*)
             echo "updating scss"
             scss --compass --update scss:static/styles || highlight
+            ;;
+        ./*)
+            [[ $line != *.coffee ]] && continue
+            kill $(jobs -p)
+            wait
+            runserver
             ;;
     esac
 done
