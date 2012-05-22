@@ -1,13 +1,10 @@
-.PHONY: css watch deps run coffee mongoc clean wc
-
-css:
-	@scss --compass --update scss:static/styles
+.PHONY: watch deps run coffee mongoc clean wc
 
 watch:
 	@./bin/watch.bash
 
-deps: css
-	@npm install
+deps:
+	@npm install # also generates css from scss and web js from coffee
 
 run: deps
 	${MAKE} coffee
